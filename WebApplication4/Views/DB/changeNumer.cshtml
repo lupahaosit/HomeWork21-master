@@ -1,0 +1,19 @@
+﻿@model Number
+@{
+    ViewData["Title"] = "changeNumer";
+}
+
+<h1>DbChange</h1>
+
+<div>
+    <form action="~/DB/DbChangeNumber" method="put">
+        <input type="number" name="Id" value="@Model.Id" />
+        <input type="text" name="Surname" value="@Model.Surname" />
+        <input type="text" name="Name" value="@Model.Name" />
+        <input type="text" name="LastName" value="@Model.LastName" />
+        <input type="number" name="PhoneNumber" value="@Model.PhoneNumber" />
+        <input type="text" name="Address" value="@Model.Address" />
+        <input type="text" name="Description" value="@Model.Description" />
+        <p><input type="submit" value="Отправить" /></p>
+    </form>
+</div>

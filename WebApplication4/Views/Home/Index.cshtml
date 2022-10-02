@@ -1,0 +1,79 @@
+﻿<script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+@{
+
+    List<Number> numbers = new List<Number>();
+    WriteObject write = new WriteObject();
+  
+
+    for (int i = 0; i < 10; i++)
+    {
+
+
+        var number = new Number();
+        numbers.Add(number);
+    }
+
+    write.Write(numbers);
+
+
+}
+
+<script>  
+    function myFunction(x) {
+    
+        $.ajax({
+            type: "POST",
+            url:"Home/Result",
+            data: { "number": x },
+            success: function (data) {
+                localStorage.setItem('item1', data);
+                alert(result)                 
+            },         
+            error: function () {
+                console.log('error')
+            }
+        });
+    }
+</script>
+
+
+
+
+<body>
+    <div class="container">
+        <table border="1">
+
+
+            <tr>
+                <th>id</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+            </tr>
+
+            @for (int i = 0; i < numbers.Count; i++)
+            {
+                <tr>
+
+                    <td><a id="surname-id" href="https://localhost:44388/Home/Privacy" onclick="myFunction(@i)">@i</a></td>
+                    <td id="surname-item">@numbers[i].Surname</td>
+                    <td>@numbers[i].Name</td>
+                    <td><a href="#" onclick="myFunction2(@i)"> @numbers[i].LastName </a></td>
+
+                </tr>
+            }
+
+
+
+
+
+        </table>
+    </div>
+
+
+</body>
+

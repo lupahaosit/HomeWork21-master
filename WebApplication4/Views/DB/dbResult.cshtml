@@ -1,0 +1,47 @@
+﻿@model List<Number>
+@{
+    ViewData["Title"] = "DB";
+}
+<script>
+        function myFunction(x) {
+
+            $.ajax({
+                type: "POST",
+                url: "DB/DbShowNumber",
+                data: { "ajaxResult": x },
+                success: function (data) {
+                    localStorage.setItem('item1', data);
+                    alert(data)
+                },
+                error: function () {
+                    console.log('error')
+                }
+            });
+        }
+</script>
+
+<h1>DbResult</h1>
+@foreach (Number number in Model)
+{
+
+    <form action="~/DB/dbShowNumber" method="get">
+
+        <tr>
+            <td><input type="submit" value="@number.Id" name="ajaxResult"></td>
+            <td width="150">@number.Name</td>
+            <td width="150">@number.Surname</td>
+            <td width="150">@(number.LastName)</td>
+            <td width="150">@(number.PhoneNumber)</td>
+            <td width="150">@(number.Address)</td>
+            <br />
+        </tr>
+    </form>
+
+
+
+}
+<a href="/DB/Add"  class="btn" style="border: solid black 1px;">Добавить</a>
+
+
+
+

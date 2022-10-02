@@ -1,0 +1,34 @@
+﻿@model Number
+@{
+    ViewData["Title"] = "dbShowNumber";
+}
+
+<h1>DbResult</h1>
+    <tr>
+        <td width="50">@Model.Id</td>
+        <td width="150">@Model.Name</td>
+        <td width="150">@Model.Surname</td>
+        <td width="150">@(Model.LastName)</td>
+        <td width="150">@(Model.PhoneNumber)</td>
+        <td width="150">@(Model.Address)</td>
+
+        <br />
+    </tr>
+    <div>
+        <form action="~/DB/DbRemoveNumber" method="delete">
+            <span>
+                <button type="submit"> удалить </button>
+                <input value="@Model.Id" name="Id" style="visibility: hidden">
+            </span>
+        </form>
+    </div>
+    
+    <form action="~/DB/changeNumer" method="get">
+        <span>
+            <button type="submit"> редактировать </button>
+            <input value="@Model.Id" name="ajaxResult" style="visibility: hidden">
+        </span>
+    </form>
+
+
+

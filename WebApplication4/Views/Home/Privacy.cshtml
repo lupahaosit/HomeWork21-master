@@ -1,0 +1,49 @@
+﻿<script>
+
+    $(document).ready(function () {
+        
+       
+    
+    })
+    function function2() {
+         var result = $(location).attr('href');
+        if (result == 'https://localhost:44388/Home/Privacy') {
+        var x = localStorage.getItem('item1').split(',')
+                $('#item-surname').html(x[0])
+                $('#item-Name').html(x[1])
+                $('#item-LastName').html(x[2])
+                $('#item-PhoneNumber').html(x[3])
+                $('#item-Desctiption').html(x[4])
+                $('#item-Address').html(x[5])
+              }  
+    }
+    
+       
+
+</script>
+
+<table border="1">
+    <tr>
+    <th>Surname </th>
+    <th>Name </th>
+    <th>LastName </th>
+    <th>PhoneNumber </th>
+    <th>Desctiption </th>
+    <th>Address </th>
+    </tr>
+
+
+
+    <tr>
+        <td id="item-surname"></td>
+        <td id="item-Name"></td>
+        <td id="item-LastName"></td>
+        <td id="item-PhoneNumber"></td>
+        <td id="item-Desctiption"></td>
+        <td id="item-Address"></td>
+    </tr>
+
+</table>
+<button onclick="function2()">
+    show
+</button>
